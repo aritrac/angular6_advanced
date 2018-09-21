@@ -1,10 +1,28 @@
-<button class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button>
+<label>Server Name</label>
+<!-- We are using the following bindings below -->
+<!-- 1.String Interpolation -->
+<!-- 2.Property Binding -->
+<!-- 3.Event Binding -->
+<!-- 4.Two way data binding -->
+
+<!-- This input does not use 2 way data binding -->
+<!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)"> -->
+
+<!-- This input does use 2 way data binding -->
+<input type="text" class="form-control" [(ngModel)]="serverName">
+<!-- <p>{{ serverName }}</p> -->
+<!-- This uses property binding and event binding -->
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
 
 <!-- We will display the value of allowNewServer property in two ways as shown below -->
 <!-- Using string interpolation -->
-<p>{{ allowNewServer }}</p>
+<!-- <p>{{ allowNewServer }}</p> -->
+
+<!-- Output another property. This property will change once the Add Server button will be clicked -->
+<!-- This uses string interpolation -->
+<p>{{ serverCreationStatus }}</p> 
 
 <!-- Using property binding -->
-<p [innerText] = "allowNewServer"></p>
+<!-- <p [innerText] = "allowNewServer"></p> -->
 <app-server></app-server>
 <app-server></app-server>
