@@ -31,5 +31,7 @@
 </ng-template>
 <!-- Using property binding -->
 <!-- <p [innerText] = "allowNewServer"></p> -->
-<app-server></app-server>
-<app-server></app-server>
+<!-- <app-server></app-server> -->
+<!-- <app-server></app-server> -->
+<!-- Now using ngFor to repeat the app-server element as many times as needed -->
+<app-server *ngFor="let server of servers"></app-server>
