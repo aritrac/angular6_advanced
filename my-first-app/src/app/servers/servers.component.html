@@ -22,7 +22,13 @@
 <!-- This uses string interpolation -->
 <!-- We are commenting this out to make this conditional using a built in directive ngIf in the next line -->
 <!-- <p>{{ serverCreationStatus }}</p>  -->
-<p *ngIf="serverCreated">Server was created, server name is {{ serverName }}</p>
+<!-- *ngIf is a structural directive which adds or removes elements from the DOM -->
+<!-- the else part refers the local template reference noServer -->
+<p *ngIf="serverCreated; else noServer">Server was created, server name is {{ serverName }}</p>
+<!-- # represents a local reference, so in the case below noServer is a local template reference which we can refer in other parts of the code to show it -->
+<ng-template #noServer>
+    <p>No server was created!</p>
+</ng-template>
 <!-- Using property binding -->
 <!-- <p [innerText] = "allowNewServer"></p> -->
 <app-server></app-server>
