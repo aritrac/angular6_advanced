@@ -5,23 +5,23 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent{
+export class AppComponent {
   title = 'exercise-practice-databinding';
   isClickable = false;
 
-  userName = "";
+  userName = '';
 
-  onUpdateUserName(event: any){
+  onUpdateUserName(event: any) {
     this.userName = (<HTMLInputElement>event.target).value;
-    if(this.userName.length > 0){
+    if (this.userName.length > 0) {
       this.isClickable = true;
-    }else{
+    } else {
       this.isClickable = false;
     }
   }
 
-  onClickEmptyUserName(){
-    this.userName = "";
+  onClickEmptyUserName() {
+    this.userName = '';
     this.isClickable = false;
   }
 }
