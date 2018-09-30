@@ -20,8 +20,9 @@
 
 <!-- Output another property. This property will change once the Add Server button will be clicked -->
 <!-- This uses string interpolation -->
-<p>{{ serverCreationStatus }}</p> 
-
+<!-- We are commenting this out to make this conditional using a built in directive ngIf in the next line -->
+<!-- <p>{{ serverCreationStatus }}</p>  -->
+<p *ngIf="serverCreated">Server was created, server name is {{ serverName }}</p>
 <!-- Using property binding -->
 <!-- <p [innerText] = "allowNewServer"></p> -->
 <app-server></app-server>
