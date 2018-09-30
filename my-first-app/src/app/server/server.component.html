@@ -1,4 +1,4 @@
 <!-- The String interpolation just needs an expression which evaluates to a string as shown below with the first expression -->
 <!-- The second and third placeholder fetches the value from the ServerComponent typescript class -->
 <!-- The fourth interpolation shows how to call a method in the ServerComponent typescript class -->
-<p>The {{ 'server' }} with ID {{ serverId }} is {{ serverStatus }} and also {{ getServerStatus() }}</p>
+<p [ngStyle]="{'background-color': getColor()}">The {{ 'server' }} with ID {{ serverId }} is {{ serverStatus }} and also {{ getServerStatus() }}</p>
