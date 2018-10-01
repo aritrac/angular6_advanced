@@ -9,7 +9,9 @@ import { Component,
          AfterContentChecked,
          AfterViewInit,
          AfterViewChecked,
-         OnDestroy
+         OnDestroy,
+         ViewChild,
+         ElementRef
        } from '@angular/core';
 
 @Component({
@@ -30,6 +32,7 @@ export class ServerElementComponent implements
   OnDestroy {
   @Input() element: {type: string, name: string, content: string};
   @Input() name: string;
+  @ViewChild('heading') header: ElementRef;
 
   constructor() {
     console.log('constructor called!');
@@ -45,6 +48,8 @@ export class ServerElementComponent implements
   // ngOnDestroy            - called once the component is about to be destroyed
   ngOnInit() {
     console.log('ngOnInit called!');
+    // as the view has not been initialized, this will be null in this lifecycle hook
+    console.log('Text Content: ' + this.header.nativeElement.textContent);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -66,6 +71,8 @@ export class ServerElementComponent implements
 
   ngAfterViewInit() {
     console.log('ngAfterViewInit called!');
+    // as the view has been initialized, this will not be null in this lifecycle hook
+    console.log('Text Content After View Init: ' + this.header.nativeElement.textContent);
   }
 
   ngAfterViewChecked() {
