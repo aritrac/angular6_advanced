@@ -1,0 +1,10 @@
+<div class="row">
+  <hr>
+  <h3>Lets play this game!</h3>
+  <div class="col-sm-3">
+      <button class="btn btn-success" (click)="onGameStart()" [disabled] = "gameStarted">Start Game</button>
+  </div>
+  <div class="col-sm-3">
+      <button class="btn btn-danger" (click)="onGameStop()">Stop Game</button>
+  </div>
+</div>

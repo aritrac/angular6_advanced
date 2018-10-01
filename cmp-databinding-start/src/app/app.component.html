@@ -12,7 +12,7 @@
         [element]="serverElement"
         [name]="serverElement.name">
         <!-- this content below will be injected into ng-content tag of the app-server-element -->
-        <p>
+        <p #contentParagraph>
             <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
             <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
         </p>

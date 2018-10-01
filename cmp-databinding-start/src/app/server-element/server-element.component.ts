@@ -11,7 +11,8 @@ import { Component,
          AfterViewChecked,
          OnDestroy,
          ViewChild,
-         ElementRef
+         ElementRef,
+         ContentChild
        } from '@angular/core';
 
 @Component({
@@ -33,6 +34,7 @@ export class ServerElementComponent implements
   @Input() element: {type: string, name: string, content: string};
   @Input() name: string;
   @ViewChild('heading') header: ElementRef;
+  @ContentChild('contentParagraph') contentPara: ElementRef;
 
   constructor() {
     console.log('constructor called!');
@@ -50,6 +52,8 @@ export class ServerElementComponent implements
     console.log('ngOnInit called!');
     // as the view has not been initialized, this will be null in this lifecycle hook
     console.log('Text Content: ' + this.header.nativeElement.textContent);
+    // as the content has not been initialized, this will be null in this lifecycle hook
+    console.log('Text Content of paragraph: ' + this.contentPara.nativeElement.textContent);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -63,6 +67,8 @@ export class ServerElementComponent implements
 
   ngAfterContentInit() {
     console.log('ngAfterContentInit called!');
+    // as the content is now being initialized, this will not be null in this lifecycle hook
+    console.log('Text Content of paragraph: ' + this.contentPara.nativeElement.textContent);
   }
 
   ngAfterContentChecked() {
