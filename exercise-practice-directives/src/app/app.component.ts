@@ -16,6 +16,7 @@ export class AppComponent {
 
     // storing the click number in the clickDetails array
     // so the ngFor can iterate over it to display the click-details-component n times
-    this.clickDetails.push(this.clickDetails.length + 1);
+    // this.clickDetails.push(this.clickDetails.length + 1);
+    this.clickDetails.push(new Date());
   }
 }

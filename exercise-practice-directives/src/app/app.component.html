@@ -20,9 +20,10 @@
 
           <!-- 4.Log all button clicks in an array and output that array below the secret paragraph -->
           <!-- 5. Starting at the 5th log item, give all future log items a blue background and a white color -->
-          <div *ngFor="let clkDet of clickDetails"
-               [ngStyle]="{backgroundColor : clkDet > 4 ? 'blue' : 'white'}"
-               [ngClass]="{'ele-color': clkDet > 4}"> {{ clkDet }}</div>
+          <!-- extracting the current index and storing it in i -->
+          <div *ngFor="let clkDet of clickDetails; let i = index"
+               [ngStyle]="{backgroundColor : i >= 4 ? 'blue' : 'white'}"
+               [ngClass]="{'ele-color': i >= 4}"> {{ clkDet }}</div>
 
         </ol>
     </div>
