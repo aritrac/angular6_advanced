@@ -2,27 +2,29 @@
   <div class="row">
       <div class="col-xs-12">
         <p>In this exercise you need to achieve the following</p>
-        <li>
-          <ol>1.Add a button which says 'Display Details'</ol>
-          <ol>2.Add a paragraph with any content of your choice. (e.g. 'Secret Password = tuna')</ol>
-          <ol>3.Toggle the displaying of that paragraph with the button created in the first step</ol>
-          <ol>4.Log all button clicks in an array and output that array below the secret paragraph (maybe log a timestamp or simply an incrementing number)</ol>
-          <ol>Starting at the 5th log item, give all future log items a blue background(via ngStyle) and white color(ngClass)</ol>
-
-
+        <ol>
+          <li>Add a button which says 'Display Details'</li>
+          <li>Add a paragraph with any content of your choice. (e.g. 'Secret Password = tuna')</li>
+          <li>Toggle the displaying of that paragraph with the button created in the first step</li>
+          <li>Log all button clicks in an array and output that array below the secret paragraph (maybe log a timestamp or simply an incrementing number)</li>
+          <li>Starting at the 5th log item, give all future log items a blue background(via ngStyle) and white color(ngClass)</li>
           
+          <!--1.Add a button which says 'Display Details'  -->
+          <button class="btn btn-primary" (click)="onClickTogglePara()">Display Details</button><br>
 
-          <!-- Adding an input field which updates a property ('username') via two wat data binding -->
-          <label>Enter name here for question 1</label>
-          <input type="text" class="form-control" [(ngModel)]="userName">
-          <!-- Output the username property via String interpolation (in a paragraph below the input) -->
-          <p>{{ userName }}</p>
-          <!-- Add a button which may only be clicked if the username is NOT an empty string -->
-          <label>Enter name here for question 3</label>
-          <input type="text" class="form-control" (input)="onUpdateUserName($event)"><br>
-          <!-- Upon clicking the button, the username should be reset to an empty string -->
-          <button class="btn btn-primary" [disabled]="!isClickable" (click)="onClickEmptyUserName()">Submit Name</button>
-        </li>
+          <!--2.Add a paragraph with any content of your choice. -->
+          <p>This is a sample paragraph which will be shown always : Click Count = {{ clickDetails.length }}</p>
+
+          <!--3.Toggle the displaying of that paragraph with the button created in the first step -->
+          <p *ngIf="isParaVisible">This is a sample paragraph which will be shown conditionally based on button click</p>
+
+          <!-- 4.Log all button clicks in an array and output that array below the secret paragraph -->
+          <!-- 5. Starting at the 5th log item, give all future log items a blue background and a white color -->
+          <div *ngFor="let clkDet of clickDetails"
+               [ngStyle]="{backgroundColor : clkDet > 4 ? 'blue' : 'white'}"
+               [ngClass]="{'ele-color': clkDet > 4}"> {{ clkDet }}</div>
+
+        </ol>
     </div>
   </div>
 </div>
